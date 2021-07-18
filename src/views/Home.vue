@@ -35,10 +35,11 @@ export default {
   setup(){
     const search = ref('')
     const movies = ref([])
+    const VUE_APP_API_KEY = process.env.VUE_APP_API_KEY
 
     const searchMovies = () => {
       if(search.value != ''){
-        fetch(`http://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&s=${search.value}`)
+        fetch(`http://www.omdbapi.com/?apikey=${VUE_APP_API_KEY}&s=${search.value}`)
           .then((response) => response.json())
           .then(data => {
             movies.value = data.Search;
