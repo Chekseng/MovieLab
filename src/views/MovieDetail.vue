@@ -133,7 +133,7 @@ export default {
       border-radius: 10px;
       
       img{
-        object-fit: cover;
+        object-fit: fill;
         width: 100%;
         border-radius: 10px;
         padding: 10px;

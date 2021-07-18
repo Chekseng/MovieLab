@@ -152,7 +152,7 @@ export default {
       }
 
       img{
-        object-fit: cover;
+        object-fit: fill;
         border-radius: 10px;
       }
     }
