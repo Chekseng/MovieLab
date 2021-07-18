@@ -88,10 +88,9 @@ export default {
   setup(){
     const movie = ref({})
     const route = useRoute();
-    const VUE_APP_API_KEY = process.env.VUE_APP_API_KEY
 
     onBeforeMount(() => {
-      fetch(`https://www.omdbapi.com/?apikey=${VUE_APP_API_KEY}&i=${route.params.id}&plot=full`)
+      fetch(`https://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&i=${route.params.id}&plot=full`)
         .then((response) => response.json())
         .then(data => {
           movie.value = data;
