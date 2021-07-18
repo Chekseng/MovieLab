@@ -26,9 +26,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { ref } from 'vue';
-import env from '@/env.js'
 
 export default {
   name: 'Home',
@@ -37,9 +35,10 @@ export default {
   setup(){
     const search = ref('')
     const movies = ref([])
+
     const searchMovies = () => {
       if(search.value != ''){
-        fetch(`http://www.omdbapi.com/?apikey=${env.apiKey}&s=${search.value}`)
+        fetch(`http://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&s=${search.value}`)
           .then((response) => response.json())
           .then(data => {
             movies.value = data.Search;

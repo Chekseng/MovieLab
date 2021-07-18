@@ -78,7 +78,9 @@
 <script>
 import { ref, onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
-import env from '@/env.js'
+// import dotenv from 'dotenv'
+// dotenv.config()
+// import env from '@/env.js'
 import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 export default {
@@ -90,9 +92,8 @@ export default {
     const movie = ref({})
     const route = useRoute();
 
-    console.log(movie)
     onBeforeMount(() => {
-      fetch(`http://www.omdbapi.com/?apikey=${env.apiKey}&i=${route.params.id}&plot=full`)
+      fetch(`http://www.omdbapi.com/?apikey=${process.env.VUE_APP_API_KEY}&i=${route.params.id}&plot=full`)
         .then((response) => response.json())
         .then(data => {
           movie.value = data;
